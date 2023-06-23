@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class ProfilePage {
 
     private WebDriver driver;
-    private By editProfileLinkButton = By.xpath("//div[@class='min-h-12 pb-2 flex justify-between items-center flex-wrap border-b border-neutral-20']//child::div[@class='flex-auto flex justify-end']//child::a[@id='edit-profile-button']//child::span");
+    private By editProfileLinkButton = By.xpath("//a[@id='edit-profile-button']");
     private By editFirstNameBox = By.xpath("//input[@type='text' and @name='firstName']");
     private By editLastNameBox = By.xpath("//input[@type='text' and @name='lastName']");
     private By editEmail = By.xpath("//input[@type='email' and @name='email']");
