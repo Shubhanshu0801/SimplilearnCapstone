@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import factory.DriverFactory;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AccountsPage;
 import pages.ProfilePage;
@@ -22,10 +23,9 @@ public class ProfilePageTest {
         title = profilePage.getProfilePageTitle();
     }
 
-    @When("user edits first name {string} last name {string} and email {string}")
-    public void user_edits_first_name_last_name_and_email(String firstName, String lastName, String email) throws InterruptedException {
-        Thread.sleep(10000);
-        profilePage.editProfile(firstName, lastName, email);
+    @When("user edits first name {string} last name {string}")
+    public void user_edits_first_name_last_name(String firstName, String lastName) throws Exception {
+        profilePage.editProfile(firstName, lastName);
     }
 
     @When("user clicks on back save button")
@@ -33,7 +33,9 @@ public class ProfilePageTest {
         profilePage.clickOnSaveButton();
     }
 
-
-
+    @Then("user gets back on accounts page and can see the changes")
+    public void user_gets_back_on_accounts_page_and_can_see_the_changes() {
+        profilePage.backToAccountPage();
+    }
 
 }

@@ -11,6 +11,7 @@ public class ProfilePage {
     private By editLastNameBox = By.xpath("//input[@type='text' and @name='lastName']");
     private By editEmail = By.xpath("//input[@type='email' and @name='email']");
     private By saveButton = By.xpath("//button[@type='submit' and @data-test-id='save']");
+    private By backToMyAccountButton = By.xpath("//div[text()='Back to my account']");
 
     public ProfilePage(WebDriver driver) {
         this.driver = driver;
@@ -19,14 +20,12 @@ public class ProfilePage {
         Thread.sleep(10000);
         driver.findElement(editProfileLinkButton).click();
     }
-    public void editProfile(String firstName, String lastName, String email) throws InterruptedException {
+    public void editProfile(String firstName, String lastName) throws Exception {
         Thread.sleep(10000);
         driver.findElement(editFirstNameBox).clear();
         driver.findElement(editFirstNameBox).sendKeys(firstName);
         driver.findElement(editLastNameBox).clear();
         driver.findElement(editLastNameBox).sendKeys(lastName);
-        driver.findElement(editEmail).clear();
-        driver.findElement(editEmail).sendKeys(email);
     }
     public void clickOnSaveButton() {
         driver.findElement(saveButton).click();
@@ -34,6 +33,11 @@ public class ProfilePage {
 
     public String getProfilePageTitle() {
         return driver.getTitle();
+    }
+
+    public AccountsPage backToAccountPage()  {
+        driver.findElement(backToMyAccountButton).click();
+        return new AccountsPage(driver);
     }
 
 }

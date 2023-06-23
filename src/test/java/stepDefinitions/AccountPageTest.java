@@ -3,6 +3,7 @@ package stepDefinitions;
 import factory.DriverFactory;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AccountsPage;
 import pages.LoginPage;
@@ -39,7 +40,8 @@ public class AccountPageTest {
     }
 
     @When("user enters {string} into the search box")
-    public void user_enters_into_the_search_box(String product) {
+    public void user_enters_into_the_search_box(String product) throws InterruptedException {
+        Thread.sleep(10000);
         accountsPage.clickOnSearchTab();
         accountsPage.enterIntoSearchTab(product);
     }
@@ -49,4 +51,9 @@ public class AccountPageTest {
         accountsPage.clickOnSearchButton();
     }
 
+    @Then("user gets the list of search products")
+    public void user_gets_the_list_of_search_products() throws InterruptedException {
+        Thread.sleep(10000);
+        accountsPage.getProductsList();
+    }
 }
