@@ -37,6 +37,6 @@ public class AccountsPage {
     public void getProductsList() throws InterruptedException {
         Thread.sleep(10000);
         List<WebElement> products = driver.findElements(By.xpath("//section[@aria-label='Product results']//ul[@id='product-list-items']//li[@data-test-id='product-list-item']"));
-        System.out.println(products.size());
+        System.out.println("Product Count is "+ products.size());
     }
 }
